@@ -1,5 +1,4 @@
-ckanext-basiccharts
-===================
+# ckanext-basiccharts
 
 This extension adds Line, Bar and Pie charts to CKAN, using the new Resource
 View that are still being developed on the master branch (currently
@@ -8,8 +7,10 @@ unreleased).
 It uses [Flot Charts](http://www.flotcharts.org), which is compatible with all
 major browsers (including IE6+).
 
-Installation
-------------
+The original ckanext-basiccharts version is hosted on github.com/ckan. The current
+version is customized for Taiwan CDC Open Data Portal.
+
+## Installation
 
 Clone this repository and run ```python setup.py install```. Then add which
 charts you'd like to your ```ckan.plugins``` in your CKAN config file.
@@ -24,8 +25,7 @@ You can then enable any (or all) of:
 Finally, restart your webserver. You should see the new chart types as options
 in the view type's list on any resource that's in the DataStore.
 
-Usage
------
+## Usage
 
 There are 3 kind of attributes that define what the chart will be: filters,
 axes, and groups. We'll create charts in the next sections to define them all
@@ -126,8 +126,7 @@ population in 1990, 2000, and 2010. If you want a single year, add a filter.
 As the legends are always embedded in the chart, there's no ```Show groups'
 legend``` option.
 
-Common problems
----------------
+## Common problems
 
 ### There are no side-by-side bars
 
@@ -143,10 +142,9 @@ drawn over each other. This almost always isn't what you want. To fix it, we
 need to support side-by-side bars, but we don't yet. If you'd like to help,
 check issue [#8](https://github.com/ckan/ckanext-basiccharts/issues/8).
 
-License
--------
+## License
 
-Copyright (C) 2014 Open Knowledge Foundation
+Copyright (C) 2017 JianKai Wang
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published

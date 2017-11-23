@@ -528,15 +528,20 @@ Licensed under the MIT license.
                     labelWidth: null, // size of tick labels in pixels
                     labelHeight: null,
                     reserveSpace: null, // whether to reserve space even if axis isn't shown
-                    tickLength: null, // size in pixels of ticks, or "full" for whole line
+                    tickLength: 0, // size in pixels of ticks, or "full" for whole line
                     alignTicksWithAxis: null, // axis number or null for no sync
-                    tickDecimals: null, // no. of decimals, null means auto
+                    tickDecimals: 0, // no. of decimals, null means auto
                     tickSize: null, // number or [number, "unit"]
-                    minTickSize: null // number or [number, "unit"]
+                    minTickSize: 1 // number or [number, "unit"]
                 },
                 yaxis: {
                     autoscaleMargin: 0.02,
-                    position: "left" // or "right"
+                    position: "left", // or "right"
+                    // y axis format
+                    tickFormatter: function(val, axis) {
+                    	if(val >= 1000) { return ("&nbsp;" + (val/1000) + "K" + "&nbsp;"); }
+			else { return val; }
+		    }
                 },
                 xaxes: [],
                 yaxes: [],
@@ -561,10 +566,10 @@ Licensed under the MIT license.
                     },
                     bars: {
                         show: false,
-                        lineWidth: 2, // in pixels
-                        barWidth: 1, // in units of the x axis
+                        lineWidth: 0, // in pixels
+                        barWidth: 0, // in units of the x axis
                         fill: true,
-                        fillColor: null,
+                        fillColor: "rgba(255,127,39,0.5)",
                         align: "left", // "left", "right", or "center"
                         horizontal: false,
                         zero: true

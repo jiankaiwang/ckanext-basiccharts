@@ -221,12 +221,16 @@ More detail and specific examples can be found in the included HTML file.
 				}
 			}
 
+                        // show colors
+                        var colorsPalette = ["#ff9966","#ff7733","#ff9933","#cc6600","#cc9900","#b38600"];
+
 			for (var i = 0; i < data.length; ++i) {
 				var value = data[i].data[0][1];
 				if (numCombined < 2 || value / total > options.series.pie.combine.threshold) {
 					newdata.push({
 						data: [[1, value]],
-						color: data[i].color,
+                                                //color: data[i].color,
+                                                color: colorsPalette[i % colorsPalette.length],
 						label: data[i].label,
 						angle: value * Math.PI * 2 / total,
 						percent: value / (total / 100)
@@ -767,7 +771,7 @@ More detail and specific examples can be found in the included HTML file.
 				show: false,
 				radius: "auto",	// actual radius of the visible pie (based on full calculated radius if <=1, or hard pixel value)
 				innerRadius: 0, /* for donut */
-				startAngle: 3/2,
+				startAngle: 5/4,
 				tilt: 1,
 				shadow: {
 					left: 5,	// shadow left offset
@@ -795,7 +799,7 @@ More detail and specific examples can be found in the included HTML file.
 					threshold: 0	// percentage at which to hide the label (i.e. the slice is too narrow)
 				},
 				combine: {
-					threshold: -1,	// percentage at which to combine little slices into one larger slice
+					threshold: 0.1,	// percentage at which to combine little slices into one larger slice
 					color: null,	// color to give the new slice (auto-generated if null)
 					label: "Other"	// label to give the new slice
 				},
@@ -805,6 +809,14 @@ More detail and specific examples can be found in the included HTML file.
 				}
 			}
 		}
+		
+		,
+		// allow interactive
+		grid: {
+		    hoverable: true,
+		    clickable: true
+		}
+
 	};
 
 	$.plot.plugins.push({
