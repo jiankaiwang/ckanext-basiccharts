@@ -7,12 +7,21 @@ unreleased).
 It uses [Flot Charts](http://www.flotcharts.org), which is compatible with all
 major browsers (including IE6+).
 
-The original ckanext-basiccharts version is hosted on github.com/ckan. The current
-version is customized for Taiwan CDC Open Data Portal.
+**The original ckanext-basiccharts version is hosted on github.com/ckan. The current
+version is customized for Taiwan CDC Open Data Portal.**
 
 ## Installation
 
-Clone this repository and run ```python setup.py install```. Then add which
+Clone this repository and run the installation, for example:
+
+```shell
+cd /usr/lib/ckan/default/src/ckan/ckanext
+git clone https://github.com/jiankaiwang/ckanext-basiccharts.git
+cd ./ckanext-basiccharts
+pip install .
+```
+
+Then add which
 charts you'd like to your ```ckan.plugins``` in your CKAN config file.
 
 You can then enable any (or all) of:
